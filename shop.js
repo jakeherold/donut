@@ -7,12 +7,18 @@ function mylog(z)     { PL.innerHTML += (z + "<br>"); }
 function mylogNoBr(z) { PL.innerHTML += z; }
 function clearLog()   { PL.innerHTML = ""; }
 
+//store hours
+var open = 6; //open at six
+var close = 19; //close at seven
+var numHours = close - open;
+
 // Donut shop object constructor
 function makeShop(loc, min, max, avg) {
   this.location    = loc;
   this.minCR = min; // Minimum customers/hour
   this.maxCR = max; // Maximum customers/hour
   this.donutsPerCust = avg;
+  this.soldDonutsArray = [];
 
   // Generate pseudo-random integer on [min, max]
   this.randIntFullRange = function() {
@@ -21,15 +27,43 @@ function makeShop(loc, min, max, avg) {
   this.donutsThisHour = function() {
     return Math.floor(this.donutsPerCust * this.randIntFullRange());
   }
+
+  // array inside the object constructor
+
+  this.donutArray = function(){
+    for (qq=0; qq < 12; qq++){
+      var soldDonuts= [];
+      var pushDonuts = this.donutSoldThisHour();
+      this.pushDonuts.push(soldDonuts);
+    }
+  }
 }
+//instantiate
+
+
 
 var PDX = new makeShop("Portland", 8, 43, 4.50); // Instantiate object
 
 /* Theoretical Loop for creating random numbers
+var pdxArray = [];   //Stores the 12 data points
+var pdxTotal = [];   //Stores total
 
-for (ii=0; ii<13; ii++){
-  var pdxArray = [];
-  var pdxDonutsPerHour = push.PDX.donutsThisHour();
+var shops = [Portland, Vancouver, Salem, Eugene, Medford
+];                   //array to hold donut branch data
+
+var buildTable = function(){
+  for (ii=0; ii < shops.length; ii++){       //pushes donutsThisHour to pdxArray
+
+    myTable.innerHTML = "<tr> shops[ii].loc </tr><tr>"   //opens new row in myTable and adds name to opening cell
+
+      pdxArray.push(shops[ii].donutsThisHour());  //pushes data point to pdxArray
+
+      myTable.innerHTML += "<td>"+pdxArray[jj]+"</td>"  //edit DOM to add to row
+
+    }
+   myTable.innerHTML += "</tr>" //closes the new row
+  }
+
 }
 */
 // For Portland:
@@ -47,11 +81,7 @@ var pdx_4pm = PDX.donutsThisHour(); // Geneate random donut total for 4 pm
 var pdx_5pm = PDX.donutsThisHour(); // Geneate random donut total for 5 pm
 var pdx_6pm = PDX.donutsThisHour(); // Geneate random donut total for 6 pm
 
-/* Theoretical total loop
-for(jj=0; jj < pdx_total.length; jj++){
 
-}
-*/
 var pdx_total = pdx_6am + pdx_7am + pdx_8am + pdx_9am + pdx_10am + pdx_11am + pdx_12pm + pdx_1pm + pdx_2pm + pdx_3pm + pdx_4pm + pdx_5pm + pdx_6pm;
 
 //Add printing Loop
@@ -77,7 +107,6 @@ var Vancouver_4pm = Vancouver.donutsThisHour(); // Geneate random donut total fo
 var Vancouver_5pm = Vancouver.donutsThisHour(); // Geneate random donut total for 5 pm
 var Vancouver_6pm = Vancouver.donutsThisHour(); // Geneate random donut total for 6 pm
 
-  // @HW ... but donut shops are sweat shops open 12 hours per day!
 var Vancouver_total = Vancouver_6am + Vancouver_7am + Vancouver_8am + Vancouver_9am + Vancouver_10am + Vancouver_11am + Vancouver_12pm + Vancouver_1pm + Vancouver_2pm + Vancouver_3pm + Vancouver_4pm + Vancouver_5pm + Vancouver_6pm;
 
 tr2.innerHTML="<td>" + "Vancouver" + "</td> <td>"+Vancouver_6am+"</td> <td>"+Vancouver_7am+"</td> <td>"+Vancouver_8am+"</td> <td>"+Vancouver_9am+"</td>  <td>"+Vancouver_10am+"</td>  <td>"+Vancouver_11am+"</td>  <td>"+Vancouver_12pm+"</td>  <td>"+Vancouver_1pm+"</td>  <td>"+Vancouver_2pm+"</td>  <td>"+Vancouver_3pm+"</td>  <td>"+Vancouver_4pm+"</td>  <td>"+Vancouver_5pm+"</td>  <td>"+Vancouver_6pm+"</td> <td>"+Vancouver_total+"</td>";
