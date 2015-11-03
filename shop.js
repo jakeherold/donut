@@ -25,6 +25,13 @@ function makeShop(loc, min, max, avg) {
 
 var PDX = new makeShop("Portland", 8, 43, 4.50); // Instantiate object
 
+/* Theoretical Loop for creating random numbers
+
+for (ii=0; ii<13; ii++){
+  var pdxArray = [];
+  var pdxDonutsPerHour = push.PDX.donutsThisHour();
+}
+*/
 // For Portland:
 var pdx_6am = PDX.donutsThisHour(); // Geneate random donut total for 6 am
 var pdx_7am = PDX.donutsThisHour(); // Geneate random donut total for 7 am
@@ -40,8 +47,14 @@ var pdx_4pm = PDX.donutsThisHour(); // Geneate random donut total for 4 pm
 var pdx_5pm = PDX.donutsThisHour(); // Geneate random donut total for 5 pm
 var pdx_6pm = PDX.donutsThisHour(); // Geneate random donut total for 6 pm
 
+/* Theoretical total loop
+for(jj=0; jj < pdx_total.length; jj++){
 
+}
+*/
 var pdx_total = pdx_6am + pdx_7am + pdx_8am + pdx_9am + pdx_10am + pdx_11am + pdx_12pm + pdx_1pm + pdx_2pm + pdx_3pm + pdx_4pm + pdx_5pm + pdx_6pm;
+
+//Add printing Loop
 
 tr1.innerHTML="<td>" + "Portland" + "</td> <td>"+pdx_6am+"</td> <td>"+pdx_7am+"</td> <td>"+pdx_8am+"</td> <td>"+pdx_9am+"</td>  <td>"+pdx_10am+"</td>  <td>"+pdx_11am+"</td>  <td>"+pdx_12pm+"</td>  <td>"+pdx_1pm+"</td>  <td>"+pdx_2pm+"</td>  <td>"+pdx_3pm+"</td>  <td>"+pdx_4pm+"</td>  <td>"+pdx_5pm+"</td>  <td>"+pdx_6pm+"</td> <td>"+pdx_total+"</td>";
 
