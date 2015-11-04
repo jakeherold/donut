@@ -35,13 +35,20 @@ var Medford = new makeShop("Medford", 4, 37, 2.00);
 //TABLE CONSTRUCTOR----------------------------------
 var shops = [Portland, Vancouver, Salem, Eugene, Medford
 ];
-function makeCell(){
-//MAKECELL FUNCTION ORIENTATION
 
 var body = document.getElementsByTagName("body")[0];
 
 var tbl = document.createElement("table");
 var tableBody = document.createElement("tbody");
+
+
+
+function makeCell(){
+//MAKECELL FUNCTION ORIENTATION
+//var clear = getElementsByTagName("tbody");
+//clear.innerHTML = "";
+
+
 
 //makeCell FUNCTION UTILITY
 var shopsString = ["Portland", "Vancouver", "Salem", "Eugene", "Medford"];
@@ -73,7 +80,7 @@ for (var i =0; i < shops.length; i++){
 
   for (var h=0; h<1; h++){  //City names deployment
     var head = document.createElement("th");
-    var headText = document.createTextNode(shopsString[i]);
+    var headText = document.createTextNode(shops[i].loc);
     //head text appended to head
     head.appendChild(headText);
     //head appended to row
@@ -120,7 +127,7 @@ tbl.appendChild(tableBody);
 //table appended to body
 body.appendChild(tbl);
 //Table set to use a 2px border
-tbl.setAttribute("border", "2px");
+tbl.setAttribute("id = table", "border", "2px");
 }
 
 //Add New line to table, using form
