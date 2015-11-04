@@ -79,21 +79,34 @@ for (var i =0; i < shops.length; i++){
     //head appended to row
     row.appendChild(head);
   }
+//h
 var counter = 0;
+var storeTotal = 0;
 
   //CELL TEXT NODES
   for (var j = 0; j < 12; j++){
     var cell = document.createElement("td");
     var cellText = document.createTextNode(shops[i].donutsThisHour());
-    var cellValue = counter + shops[i].donutsThisHour;
-    var storeTotal = 0;
-    var storeTotal = storeTotal + cellText.value;
-    var total = document.createTextNode(storeTotal);
+    counter++;
+
+    storeTotal = storeTotal + shops[i].donutsThisHour();
+    //console.log("counter =" + counter);
+
+    if (counter === 12){
+      console.log("STORE TOTAL = " + storeTotal);
+      // append total to
+      var total = document.createTextNode(storeTotal);
+      row.appendChild(total);
+      //row appended to table
+      tableBody.appendChild(row);
+    }
     //cell text appended to cell
     cell.appendChild(cellText);
     //cell appended to row
     row.appendChild(cell);
   }
+
+  ///h
   //append total to
   var totalCell = document.createElement("td");
   row.appendChild(totalCell);
@@ -101,7 +114,7 @@ var counter = 0;
   tableBody.appendChild(row);
 
 }
-counter = cellValue;
+
 //table body appeneded to table
 tbl.appendChild(tableBody);
 //table appended to body
