@@ -26,72 +26,111 @@ function makeShop(loc, min, max, avg) {
 }
 
 //SHOPS INFO-----------------------------
-var Portland = new makeShop("Portland", 8, 43, 4.50);
-var Vancouver = new makeShop("Vancouver", 9, 23, 6.33);
-var Salem = new makeShop("Salem", 2, 28, 1.25);
-var Eugene = new makeShop("Eugene", 8, 58, 3.75);
-var Medford = new makeShop("Medford", 4, 37, 2.00);
-
-//TABLE CONSTRUCTOR----------------------------------
-var shops = [Portland, Vancouver, Salem, Eugene, Medford
+var shops = [
+ Portland = new makeShop("Portland", 8, 43, 4.50),
+ Vancouver = new makeShop("Vancouver", 9, 23, 6.33),
+ Salem = new makeShop("Salem", 2, 28, 1.25),
+ Eugene = new makeShop("Eugene", 8, 58, 3.75),
+ Medford = new makeShop("Medford", 4, 37, 2.00)
 ];
 
-var body = document.getElementsByTagName("body")[0];
+var time = ["City", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6am", "Total" ];
 
+var body = document.getElementsByTagName("body")[0];
 var tbl = document.createElement("table");
 var tableBody = document.createElement("tbody");
 
+function makeHead(){
+  for (var gg = 0; gg < 1; gg++){
+    var hRow = document.createElement("tr");
+    var hCell = hRow.insertCell(0);
+    //hCell.innerHTML += time[gg];
 
+    for (var hh = 0; hh < time.length; hh++){
+      var head = document.createElement("th");
+      //var headCell = head.insertCell(0);
+      head.innerHTML += time[hh];
+      hCell.appendChild(head);
 
-function makeCell(){
-//MAKECELL FUNCTION ORIENTATION
-//var clear = getElementsByTagName("tbody");
-//clear.innerHTML = "";
-
-
-
-//makeCell FUNCTION UTILITY
-var shopsString = ["Portland", "Vancouver", "Salem", "Eugene", "Medford"];
-var tableTop = ["Location","7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "Total"];
-
-
-
-
-//MAKECELL PRINTING-------------------
-
-//COLUMN HEADERS
-for (var v=0; v<1; v++){
-  var thead = document.createElement("thead");
-    for (var p=0; p< tableTop.length; p++){
-      var title = document.createElement("th");
-      var titleText = document.createTextNode(tableTop[p]);
-      //head text appended to head
-      title.appendChild(titleText);
-      //head appended to row
-      thead.appendChild(title);
     }
-
-  tbl.appendChild(thead);
+    tableBody.appendChild(hRow);
+  }
+  tbl.appendChild(tableBody);
+body.appendChild(tbl);
+tbl.setAttribute("border", "4");
 }
 
-//ROW HEADERS
-for (var i =0; i < shops.length; i++){
-  var row = document.createElement("tr");
+function makeTable(){
+  for (var i = 0; i < time.length; i++){
+    var row = document.createElement("tr");
+    var rowCell = row.insertCell(0);
+    rowCell.innerHTML += time[i];
 
-  for (var h=0; h<1; h++){  //City names deployment
-    var head = document.createElement("th");
-    var headText = document.createTextNode(shops[i].loc);
-    //head text appended to head
+    for (var kk = 0; kk < shops.length; kk++){
+      var cell = document.createElement("td");
+      cell.innerHTML = shops[kk].donutsThisHour();
+      row.appendChild(cell);
+    }
+      tableBody.appendChild(row);
+  }
+tbl.appendChild(tableBody);
+body.appendChild(tbl);
+tbl.setAttribute("border", "4")
+}
+
+
+makeHead();
+makeTable();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*// OLD TABLE CONSTRUCTOR----------------------------------
+
+var tbl = document.getElementById("myTable");
+var tableBody = document.createElement("tbody");
+tbl.appendChild(tableBody);
+
+
+function makeTable(){
+
+tableBody.innerHTML = "";
+
+//ROW creation
+for (var i =0; i < shops.length; i++){
+  var row = document.createElement("tr"); //create new row
+
+  for (var h=0; h<1; h++){  //create that cities' row
+    var head = document.createElement("td");
+    var headText = document.createTextNode(shops[i].location);
+
     head.appendChild(headText);
-    //head appended to row
+
     row.appendChild(head);
   }
-//h
+
 var counter = 0;
 var storeTotal = 0;
 
-  //CELL TEXT NODES
-  for (var j = 0; j < 12; j++){
+  //create random numbers
+  for (var j = 0; j <= 12; j++){
     var cell = document.createElement("td");
     var cellText = document.createTextNode(shops[i].donutsThisHour());
     counter++;
@@ -99,62 +138,40 @@ var storeTotal = 0;
     storeTotal = storeTotal + shops[i].donutsThisHour();
     //console.log("counter =" + counter);
 
-    if (counter === 12){
+    if (counter === 13){
       console.log("STORE TOTAL = " + storeTotal);
       // append total to
       var total = document.createTextNode(storeTotal);
+      total.appendChild(storeTotal);
       row.appendChild(total);
       //row appended to table
       tableBody.appendChild(row);
+
+    } else {//cell text appended to cell
+      cell.appendChild(cellText);
+      //cell appended to row
+      row.appendChild(cell);
     }
-    //cell text appended to cell
-    cell.appendChild(cellText);
-    //cell appended to row
-    row.appendChild(cell);
   }
-
-  ///h
-  //append total to
-  var totalCell = document.createElement("td");
-  row.appendChild(totalCell);
-  //row appended to table
-  tableBody.appendChild(row);
-
 }
-
-//table body appeneded to table
 tbl.appendChild(tableBody);
-//table appended to body
-body.appendChild(tbl);
-//Table set to use a 2px border
-tbl.setAttribute("id = table", "border", "2px");
+tbl.setAttribute("id", "myTable");
+tbl.setAttribute("border", "2px");
 }
 
 //Add New line to table, using form
 function addNewShop(){
-var userLocation = (document.getElementById('loc').value);
-var userMinCR =  parseInt(document.getElementById('minCR').value);
-var userMaxCR =  parseInt(document.getElementById('maxCR').value);
-var userAvgCustDonuts = parseFloat(document.getElementById('donutPerCust').value);
-var newShop = new makeShop (userLocation, userMinCR, userMaxCR, userAvgCustDonuts);
-shops.push(newShop);
-makeCell();
+  var userLocation = (document.getElementById('loc').value);
+  var userMinCR =  parseInt(document.getElementById('minCR').value);
+  var userMaxCR =  parseInt(document.getElementById('maxCR').value);
+  var userAvgCustDonuts = parseFloat(document.getElementById('donutPerCust').value);
+
+  if ((userLocation = NaN) && (userMinCR !=NaN) && (userMaxCR != NaN) && (userAvgCustDonuts != NaN)){
+      var newShop = new makeShop (userLocation, userMinCR, userMaxCR, userAvgCustDonuts);
+      shops.push(newShop);
+      makeTable();
 }
 
-
-makeCell();
-
-//SCRATCH SPACE-----------------------
-
-/*for (var d = 0; d <12; d++){
-      var hold = ;
-      storeTotal += hold;
-      var total = document.createTextNode(storeTotal);
-
-    }*/
-
-
-
-
-
+}
+*/
 
