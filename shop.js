@@ -32,11 +32,9 @@ var Salem = new makeShop("Salem", 2, 28, 1.25);
 var Eugene = new makeShop("Eugene", 8, 58, 3.75);
 var Medford = new makeShop("Medford", 4, 37, 2.00);
 
-var Portland = new makeShop("Portland", 8, 43, 4.50);
-
-
 //TABLE CONSTRUCTOR----------------------------------
-
+var shops = [Portland, Vancouver, Salem, Eugene, Medford
+];
 function makeCell(){
 //MAKECELL FUNCTION ORIENTATION
 
@@ -49,8 +47,7 @@ var tableBody = document.createElement("tbody");
 var shopsString = ["Portland", "Vancouver", "Salem", "Eugene", "Medford"];
 var tableTop = ["Location","7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "Total"];
 
-var shops = [Portland, Vancouver, Salem, Eugene, Medford
-];
+
 
 
 //MAKECELL PRINTING-------------------
@@ -82,20 +79,34 @@ for (var i =0; i < shops.length; i++){
     //head appended to row
     row.appendChild(head);
   }
+//h
+var counter = 0;
+var storeTotal = 0;
 
   //CELL TEXT NODES
   for (var j = 0; j < 12; j++){
     var cell = document.createElement("td");
     var cellText = document.createTextNode(shops[i].donutsThisHour());
+    counter++;
 
-    var storeTotal = 0;
-    var storeTotal = storeTotal + cellText;
-    var total = document.create
+    storeTotal = storeTotal + shops[i].donutsThisHour();
+    //console.log("counter =" + counter);
+
+    if (counter === 12){
+      console.log("STORE TOTAL = " + storeTotal);
+      // append total to
+      var total = document.createTextNode(storeTotal);
+      row.appendChild(total);
+      //row appended to table
+      tableBody.appendChild(row);
+    }
     //cell text appended to cell
     cell.appendChild(cellText);
     //cell appended to row
     row.appendChild(cell);
   }
+
+  ///h
   //append total to
   var totalCell = document.createElement("td");
   row.appendChild(totalCell);
@@ -103,6 +114,7 @@ for (var i =0; i < shops.length; i++){
   tableBody.appendChild(row);
 
 }
+
 //table body appeneded to table
 tbl.appendChild(tableBody);
 //table appended to body
@@ -110,6 +122,19 @@ body.appendChild(tbl);
 //Table set to use a 2px border
 tbl.setAttribute("border", "2px");
 }
+
+//Add New line to table, using form
+function addNewShop(){
+var userLocation = (document.getElementById('loc').value);
+var userMinCR =  parseInt(document.getElementById('minCR').value);
+var userMaxCR =  parseInt(document.getElementById('maxCR').value);
+var userAvgCustDonuts = parseFloat(document.getElementById('donutPerCust').value);
+var newShop = new makeShop (userLocation, userMinCR, userMaxCR, userAvgCustDonuts);
+shops.push(newShop);
+makeCell();
+}
+
+
 makeCell();
 
 //SCRATCH SPACE-----------------------
