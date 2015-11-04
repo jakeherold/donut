@@ -4,7 +4,34 @@
 <head> <title>Table practice</title> </head>
 
 <body>
+<div id ="storeMaker">
 
+    <label for="loc">Location:</label>
+    <br>
+    <input type ="text" maxlength="20" id="loc" placeholder="Location">
+      </input>
+    <br>
+
+    <label for="minCR">Minimum Customers per Hour:</label>
+    <br>
+    <input type="text" id="minCR" placeholder="Min Cust./hr" maxlength="6">
+  </input>
+    <br>
+
+    <label for="maxCR">Maximum Customers per Hour:</label>
+    <br>
+    <input type="text" id="maxCR" placeholder="Max Cust./hr" maxlength="6">
+    </input>
+    <br>
+
+    <label for="donutPerCust">Average Donuts per Customer:</label>
+    <br>
+    <input type="text" id="donutPerCust" placeholder="Average donuts per customer" maxlength="6">
+    </input>
+    <br>
+
+    <button id ="input_button" type="submit" value="Submit" onclick="addNewShop()">Generate Store</button>
+</div>
 
 </body>
 <script type="text/javascript" src="shop.js"></script>

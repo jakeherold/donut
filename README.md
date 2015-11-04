@@ -11,10 +11,19 @@ Bug fixes include:
 1.0 - Created basic functionality using brute force coding with known methodology.
 1.1 - De-buggered the decimal points cluttering my beautiful numbers. Error occured because the "this.donutsThisHour" function lacked a math.floor() cleanup. Perhaps the first quick fix of the project so far.
 
+11/3/15
+Got the
+
 
 To-do:
 --------------
 0. Figure out how to set table lines using loops and DOM mods
+Status: DONE
 1. Get arrays set with useful values
+Status: DONE
 2. figure out how to pull from those arrays using loops
+Status: DONE
 3. find donuts and either eat them or set them ablaze. [optional]
+Status: TO DO
+
+
