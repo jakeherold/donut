@@ -1,37 +1,35 @@
 
 <!DOCTYPE html>
 <html>
-<head> <title>Table practice</title> </head>
+<head>
+    <title>Table practice</title> </head>
+    <link href='https://fonts.googleapis.com/css?family=Tillana|Caveat|Macondo+Swash+Caps|Ribeye+Marrow' rel='stylesheet' type='text/css'>
+    <link type="text/css" href="shop.css" rel="stylesheet"></link>
 
 <body>
-<div id ="storeMaker">
+<img src="images/donutsHeader.jpg" id="donutHeader"></img>
 
-    <label for="loc">Location:</label>
+
+<fieldset id ="storeMaker">
+    <legend> Store Maker </legend>
     <br>
     <input type ="text" maxlength="20" id="loc" placeholder="Location">
       </input>
     <br>
-
-    <label for="minCR">Minimum Customers per Hour:</label>
     <br>
     <input type="text" id="minCR" placeholder="Min Cust./hr" maxlength="6">
   </input>
     <br>
-
-    <label for="maxCR">Maximum Customers per Hour:</label>
     <br>
     <input type="text" id="maxCR" placeholder="Max Cust./hr" maxlength="6">
     </input>
     <br>
-
-    <label for="donutPerCust">Average Donuts per Customer:</label>
     <br>
     <input type="text" id="donutPerCust" placeholder="Average donuts per customer" maxlength="6">
     </input>
     <br>
-
     <button id ="input_button" type="submit" value="Submit" onclick="addNewShop()">Generate Store</button>
-</div>
+</fieldset>
 
 </body>
 <script type="text/javascript" src="shop.js"></script>
