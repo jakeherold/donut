@@ -5,9 +5,25 @@ Contributors:
 Alex Anderson
 Connor Cumming
 Hugh Devore (debugging assistance)
+
 11/4/15
+10:13pm
+Worked all day on getting the table right again. Didn't go as well as hoped. So, with a little assistance, I feel like i fully understand the intricacies of adding table elements to the dom(and as a result, can probably add pretty much any needed element, with a little practice.). To this end, now i'm tweaking the constructed elements so that the header doesn't go away upon adding  a row.
+
+Added a table head section, worked like a charm. Header no longer gets deleted.
+
+Added some basic CSS Style. Not finished yet, but is a helluva lot better than when it started.
+
+To-do:
+-------------
+0. figure out why the donutHeader is being surrounded by brown. Maybe need to put it in a new element?
+1. Finish CSS style
+2. Add rickRoll easterEgg
+3. Add donut of XKCD-dom
+4. have a beer and possibly a donut in celebration (optional, but not really)
 
 
+______________________________________________________________________________________
 11/3/15
 10:30pm
 Got the counter-total system working, though it prints to the n-1th spot, rather than its prpoper location.
@@ -20,6 +36,7 @@ To-do:
 2. figure out where in the world the location name is being thrown away to.
 3. put some styling on it. IT looks like trash still.
 
+______________________________________________________________________________________
 
 11/2/15 - 11/3/15
 12:21 AM

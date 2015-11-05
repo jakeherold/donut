@@ -29,7 +29,9 @@ var time = ["City", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "
 
 var body = document.getElementsByTagName("body")[0];
 var tbl = document.createElement("table");
+var tableHead = document.createElement("thead");
 var tableBody = document.createElement("tbody");
+tbl.appendChild(tableHead);
 tbl.appendChild(tableBody);
 body.appendChild(tbl);
 
@@ -44,7 +46,7 @@ function makeHead(){
       hRow.appendChild(head);
 
     }
-    tableBody.appendChild(hRow);
+    tableHead.appendChild(hRow);
   }
 tbl.setAttribute("border", "4");
 }
@@ -76,6 +78,7 @@ function makeTable(){
       tableBody.appendChild(row);
   }
 tbl.setAttribute("border", "4")
+tbl.setAttribute("id", "mainTable")
 }
 
 makeHead();
@@ -92,6 +95,7 @@ function addNewShop(){
 
       var newShop = new makeShop (userLocation, userMinCR, userMaxCR, userAvgCustDonuts);
       shops.push(newShop);
+      tableBody.innerHTML = "";
       makeTable();
 }
 
