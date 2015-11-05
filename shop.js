@@ -13,17 +13,8 @@ function makeShop(loc, min, max, avg) {
   this.donutsThisHour = function() {
     return Math.floor(this.donutsPerCust * this.randIntFullRange());
   };
-
-  // array inside the object constructor
-  this.donutArray = function(){
-    for (qq=0; qq < 12; qq++){
-
-      var pushDonuts = this.donutSoldThisHour();
-      soldDonutsArray.push(pushDonuts);
-      //return soldDonuts;
-    }
-  };
 }
+
 
 //SHOPS INFO-----------------------------
 var shops = [
@@ -39,139 +30,101 @@ var time = ["City", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "
 var body = document.getElementsByTagName("body")[0];
 var tbl = document.createElement("table");
 var tableBody = document.createElement("tbody");
+tbl.appendChild(tableBody);
+body.appendChild(tbl);
 
 function makeHead(){
   for (var gg = 0; gg < 1; gg++){
     var hRow = document.createElement("tr");
-    var hCell = hRow.insertCell(0);
-    //hCell.innerHTML += time[gg];
+
 
     for (var hh = 0; hh < time.length; hh++){
       var head = document.createElement("th");
-      //var headCell = head.insertCell(0);
       head.innerHTML += time[hh];
-      hCell.appendChild(head);
+      hRow.appendChild(head);
 
     }
     tableBody.appendChild(hRow);
   }
-  tbl.appendChild(tableBody);
-body.appendChild(tbl);
 tbl.setAttribute("border", "4");
 }
 
 function makeTable(){
-  for (var i = 0; i < time.length; i++){
-    var row = document.createElement("tr");
-    var rowCell = row.insertCell(0);
-    rowCell.innerHTML += time[i];
 
-    for (var kk = 0; kk < shops.length; kk++){
+  for (var i = 0; i < shops.length; i++){
+    var row = document.createElement("tr");
+    //add command to get city name. (create cell and text node, attach it to row)
+    var city = document.createElement("td");
+    var cityText = document.createTextNode(shops[i].location);
+    city.appendChild(cityText);
+    row.appendChild(city);
+    var total=0;
+    for (var kk = 0; kk < (time.length - 2); kk++){
       var cell = document.createElement("td");
-      cell.innerHTML = shops[kk].donutsThisHour();
+      var hourStore = shops[i].donutsThisHour();
+      var cellText = document.createTextNode(hourStore);
+      total += hourStore;
+      cell.appendChild(cellText);
       row.appendChild(cell);
     }
+    //total calculator
+      var totalReport = document.createElement("td");
+      var totalReportText = document.createTextNode(total);
+      totalReport.appendChild(totalReportText);
+      row.appendChild(totalReport);
+
       tableBody.appendChild(row);
   }
-tbl.appendChild(tableBody);
-body.appendChild(tbl);
 tbl.setAttribute("border", "4")
 }
-
 
 makeHead();
 makeTable();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*// OLD TABLE CONSTRUCTOR----------------------------------
-
-var tbl = document.getElementById("myTable");
-var tableBody = document.createElement("tbody");
-tbl.appendChild(tableBody);
-
-
-function makeTable(){
-
-tableBody.innerHTML = "";
-
-//ROW creation
-for (var i =0; i < shops.length; i++){
-  var row = document.createElement("tr"); //create new row
-
-  for (var h=0; h<1; h++){  //create that cities' row
-    var head = document.createElement("td");
-    var headText = document.createTextNode(shops[i].location);
-
-    head.appendChild(headText);
-
-    row.appendChild(head);
-  }
-
-var counter = 0;
-var storeTotal = 0;
-
-  //create random numbers
-  for (var j = 0; j <= 12; j++){
-    var cell = document.createElement("td");
-    var cellText = document.createTextNode(shops[i].donutsThisHour());
-    counter++;
-
-    storeTotal = storeTotal + shops[i].donutsThisHour();
-    //console.log("counter =" + counter);
-
-    if (counter === 13){
-      console.log("STORE TOTAL = " + storeTotal);
-      // append total to
-      var total = document.createTextNode(storeTotal);
-      total.appendChild(storeTotal);
-      row.appendChild(total);
-      //row appended to table
-      tableBody.appendChild(row);
-
-    } else {//cell text appended to cell
-      cell.appendChild(cellText);
-      //cell appended to row
-      row.appendChild(cell);
-    }
-  }
-}
-tbl.appendChild(tableBody);
-tbl.setAttribute("id", "myTable");
-tbl.setAttribute("border", "2px");
-}
-
-//Add New line to table, using form
 function addNewShop(){
   var userLocation = (document.getElementById('loc').value);
   var userMinCR =  parseInt(document.getElementById('minCR').value);
   var userMaxCR =  parseInt(document.getElementById('maxCR').value);
   var userAvgCustDonuts = parseFloat(document.getElementById('donutPerCust').value);
 
-  if ((userLocation = NaN) && (userMinCR !=NaN) && (userMaxCR != NaN) && (userAvgCustDonuts != NaN)){
+
       var newShop = new makeShop (userLocation, userMinCR, userMaxCR, userAvgCustDonuts);
       shops.push(newShop);
       makeTable();
 }
 
-}
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

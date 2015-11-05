@@ -2,48 +2,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Table practice</title> </head>
-<link href='https://fonts.googleapis.com/css?family=Tillana|Caveat|Macondo+Swash+Caps|Ribeye+Marrow' rel='stylesheet' type='text/css'>
-<link type="text/css" href="shop.css" rel="stylesheet"></link>
+    <title>Table practice</title> </head>
+    <link href='https://fonts.googleapis.com/css?family=Tillana|Caveat|Macondo+Swash+Caps|Ribeye+Marrow' rel='stylesheet' type='text/css'>
+    <link type="text/css" href="shop.css" rel="stylesheet"></link>
+
 <body>
-
-<!--<table id="myTable" border=1>
-    <tr id="colHead">
-    <th>CITY</th> <th>7am</th> <th>8am</th> <th>9am</th> <th>10am</th> <th>11am</th> <th>12pm</th> <th>1pm</th>  <th>2pm</th>  <th>3pm</th>  <th>4pm</th>  <th>5pm</th> <th>6pm</th>  <th>Total</th>
-    </tr>
-</table> -->
-
-
-
-
 
 
 <div id ="storeMaker">
     <legend> Store Maker </legend>
-    <label for="loc">Location:</label>
     <br>
     <input type ="text" maxlength="20" id="loc" placeholder="Location">
       </input>
     <br>
-
-    <label for="minCR">Minimum Customers per Hour:</label>
     <br>
     <input type="text" id="minCR" placeholder="Min Cust./hr" maxlength="6">
   </input>
     <br>
-
-    <label for="maxCR">Maximum Customers per Hour:</label>
     <br>
     <input type="text" id="maxCR" placeholder="Max Cust./hr" maxlength="6">
     </input>
     <br>
-
-    <label for="donutPerCust">Average Donuts per Customer:</label>
     <br>
     <input type="text" id="donutPerCust" placeholder="Average donuts per customer" maxlength="6">
     </input>
     <br>
-
     <button id ="input_button" type="submit" value="Submit" onclick="addNewShop()">Generate Store</button>
 </div>
 
