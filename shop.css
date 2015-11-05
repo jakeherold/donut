@@ -1,10 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html{
-  padding:0%;
-  margin: 0%;
+  padding:0px;
+  margin: 0px;
   color: black;
 }
 p {
   font-family: 'Ribeye Marrow';
+
 
 }
 input{
@@ -23,6 +29,7 @@ input: focus{
 table {
   text-align: center;
   font-family: 'Caveat';
+  font-size: 16px;
   background-color: #F6E497;
   border-color:#4C1B1B;
   color: #4C1B1B;
@@ -44,7 +51,7 @@ tr{
   border-radius: 15px;
 }
 td{
-  border-color: #FCFAE1;
+  border-color: #4C1B1B;
   border-radius: 25px;
 }
 th{
@@ -55,7 +62,19 @@ body {
 background-color: #BD8D46;
 border-color: black;
 border-width: 10px;
+
 }
+section {
+}
+aside {
+    width: 125px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 18px;
+    min-height: 100%;
+    padding: 8px;
+}
+
 
 .bar{
   width: ;
@@ -72,10 +91,11 @@ border-width: 10px;
 };
 
 #mainTable{
-  width: 48%;
+  width: 400px;
   height: 400px;
   display:inline-block;
   float: right;
+  font-size: 16px;
 
 }
 #donutHeader{

@@ -13,6 +13,8 @@ function makeShop(loc, min, max, avg) {
   this.donutsThisHour = function() {
     return Math.floor(this.donutsPerCust * this.randIntFullRange());
   };
+
+  /*push.shopHash[loc] = 1; //set up has for location names, read as truthy if they exist*/
 }
 
 
@@ -24,6 +26,16 @@ var shops = [
  Eugene = new makeShop("Eugene", 8, 58, 3.75),
  Medford = new makeShop("Medford", 4, 37, 2.00)
 ];
+
+/*var shopHash ={}
+
+var userEnteredCityName = userLocation; //get from form input  <-- this is a string
+
+if (shopHash[userEnteredCityName]) {  // true if already in hash
+
+}*/
+
+
 
 //Header array------------------
 var time = ["City", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6am", "Total" ];
@@ -90,6 +102,8 @@ makeHead();
 makeTable();
 
 overloadCounter = 0;
+
+
 function addNewShop(){
   var userLocation = (document.getElementById('loc').value);
   var userMinCR =  parseInt(document.getElementById('minCR').value);
@@ -99,6 +113,7 @@ function addNewShop(){
   var newShop = new makeShop (userLocation, userMinCR, userMaxCR, userAvgCustDonuts);
 
   shops.push(newShop);
+
   tableBody.innerHTML = "";
   overloadCounter++;
 
@@ -106,6 +121,8 @@ function addNewShop(){
     alert("Please enter correct data types in the form");
   }
 
+  /*if (shopHash[userEnteredCityName] = 1){*/
+//Rickroll and printing
   if (overloadCounter > 4){
     body.innerHTML = "";
     var rick = document.createElement("IFRAME");
@@ -114,21 +131,19 @@ function addNewShop(){
     rick.setAttribute("src", "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1");
     document.body.appendChild(rick);
   }else if (overloadCounter <=4){
-
     tableBody.innerHTML="";
-
     makeTable();
+//Clear form directly after making new table
+    function clearForm () {
+    document.getElementById("loc").value="";
+    document.getElementById("minCR").value="";
+    document.getElementById("maxCR").value = "";
+    document.getElementById("donutPerCust").value="";
+    }//end clear form
+  clearForm();
 
-    /*function clearForm () {
-    var clearForm1 = document.getElementsById("loc").reset();
-    var clearForm2 = document.getElementsById("userMinCR")reset();
-    var clearForm3 = document.getElementsById("userMaxCR")reset();
-    var clearForm4 = document.getElementsById("userAvgCustDonuts")reset();
-    }
-
-  clearForm();*/
-  }
-
-}
-
+    }//end printing bracket
+  /*}//end shophash limiter
+  else {alert ("Try a new city, instead!")}*/
+}//final addshop bracket
 
