@@ -7,37 +7,88 @@ p {
   font-family: 'Ribeye Marrow';
 
 }
+input{
+  width: 80%;
+  height: 20%;
+  text-align: center;
+  font-family:'Tillana';
+  border-radius: 25px;
+}
+input:hover{
 
+}
+input: focus{
+
+}
 table {
   text-align: center;
   font-family: 'Caveat';
   background-color: #F6E497;
   border-color:#4C1B1B;
-  width: 75%;
+  color: #4C1B1B;
+  display: inline;
+  float: right;
+  border-radius: 25px;
+  border-width: 4px;
+  padding: 3px;
+  min-height: 25%;
+  min-width: 40%;
 
+}
+tbody{
+  border-radius: 25px;
+
+}
+tr{
+  border-color: #4C1B1B;
+  border-radius: 15px;
 }
 td{
   border-color: #FCFAE1;
+  border-radius: 25px;
+}
+th{
+  border-radius: 25px;
 }
 
 body {
 background-color: #BD8D46;
+border-color: black;
+border-width: 10px;
 }
 
-
+.bar{
+  width: ;
+}
 
 #storeMaker{
   font-family:'Macondo Swash Caps';
   text-align:center;
+  width: 48%;
+  display: inline-block;
+  float: left;
+
 
 };
 
 #mainTable{
-  width: 75%;
+  width: 48%;
   height: 400px;
+  display:inline-block;
+  float: right;
+
 }
 #donutHeader{
-  width: 110%;
-  height: 8%;
+  width: 100%;
+  max-height: 400px;
   margin:0px;
+
+}
+#introP{
+font-family: 'Ribeye Marrow'
+}
+
+
+#secondP{
+font-family: 'Ribeye Marrow';
 }
