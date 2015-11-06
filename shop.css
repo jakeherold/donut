@@ -23,6 +23,8 @@ input{
   text-align: center;
   font-family:'Tillana';
   border-radius: 25px;
+  border: 4px;
+  border-color: black;
 }
 input:hover{
   -webkit-transform: scale(1.1);
@@ -36,18 +38,20 @@ button:hover{
 }
 
 legend{
-  border: 2px;
+  border: 4px;
   border-radius: 25px;
   background-color: #36B1BF;
+  border-color:black;
   width: 400px;
   height: 100px;
+  padding-top: 23px;
 }
 table {
   text-align: center;
   font-family: 'Caveat';
   font-size: 16px;
-  background-color: #36B1BF;
-  border-color:#4AD9D9;
+  background-color: #4AD9D9;
+  border-color:black;
   color: black;
   display: inline;
   float: right;
@@ -74,7 +78,7 @@ td{
 }
 th{
   border-radius: 25px;
-  font-size: 1.3em;
+  font-size: 1.55em;
   font-weight: bold;
 }
 
@@ -123,9 +127,7 @@ aside {
 }
 
 #mainTable:hover{
-  -webkit-transform: scale(1.6);
-  -ms-transform: scale(1.6);
-  transform: scale(1.6);
+  -webkit-transform: scale(1.1);
   transition: transform .5s ease-in-out;
 
 }
@@ -136,9 +138,7 @@ aside {
   padding:0px;
 
 }
-#introP{
-font-family: 'Chewy'
-}
+
 #fade{
   opacity:1.0;
 }
@@ -146,9 +146,6 @@ font-family: 'Chewy'
   opacity: .94;
 }
 
-#secondP{
-font-family: 'Chewy';
-}
 #inputButton{
 width: 180px;
 height: 70px;
