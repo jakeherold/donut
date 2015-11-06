@@ -8,10 +8,10 @@ function makeShop(loc, min, max, avg) {
 
   // Generate pseudo-random integer on [min, max]
   this.randIntFullRange = function() {
-    return Math.floor(Math.random() * (this.maxCR - this.minCR + 1)) + this.minCR;
+    return Math.round(Math.random() * (this.maxCR - this.minCR + 1)) + this.minCR;
   };
   this.donutsThisHour = function() {
-    return Math.floor(this.donutsPerCust * this.randIntFullRange());
+    return Math.round(this.donutsPerCust * this.randIntFullRange());
   };
 
   /*push.shopHash[loc] = 1; //set up has for location names, read as truthy if they exist*/
@@ -109,7 +109,7 @@ function addNewShop(){
   var userMinCR =  parseInt(document.getElementById('minCR').value);
   var userMaxCR =  parseInt(document.getElementById('maxCR').value);
   var userAvgCustDonuts = parseFloat(document.getElementById('donutPerCust').value);
-  if ((userMinCR != NaN) && (userMaxCR != NaN) && (userAvgCustDonuts != NaN)){
+  if ((userLocation != "") && (userMinCR != "") && (userMaxCR != "") && (userAvgCustDonuts != "")){
   var newShop = new makeShop (userLocation, userMinCR, userMaxCR, userAvgCustDonuts);
 
   shops.push(newShop);

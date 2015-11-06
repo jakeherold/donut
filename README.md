@@ -6,6 +6,17 @@ Alex Anderson
 Connor Cumming
 Hugh Devore (debugging assistance)
 
+11/6/15
+Added animatons, and removed lorum ipsum paragraphs for the sake of cleanliness.
+This seem to look good, and are ready to turn in.
+
+to-do (in the future)
+------------------------
+0. Get hash working for duplicate inhibition
+1. Actually eat a doughnut. (not optional)
+
+====================================================================================
+
 11/5/15
 Worked on getting the form-clear function going. Finally got it to go.
 added RickRoll easteregg.
@@ -15,6 +26,8 @@ To-do:
 -------------
 0. Add hash-based duplicate inhibitor
 1. Clean and do some restyling
+
+========================================================================================================
 
 11/4/15
 10:13pm
