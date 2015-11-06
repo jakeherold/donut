@@ -6,6 +6,16 @@ Alex Anderson
 Connor Cumming
 Hugh Devore (debugging assistance)
 
+11/5/15
+Worked on getting the form-clear function going. Finally got it to go.
+added RickRoll easteregg.
+Solved header issues, and have table running perfectly.
+
+To-do:
+-------------
+0. Add hash-based duplicate inhibitor
+1. Clean and do some restyling
+
 11/4/15
 10:13pm
 Worked all day on getting the table right again. Didn't go as well as hoped. So, with a little assistance, I feel like i fully understand the intricacies of adding table elements to the dom(and as a result, can probably add pretty much any needed element, with a little practice.). To this end, now i'm tweaking the constructed elements so that the header doesn't go away upon adding  a row.
