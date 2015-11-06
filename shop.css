@@ -6,13 +6,15 @@
 html{
   padding:0px;
   margin: 0px;
-  color: black;
+
 }
 p {
-  font-family: 'Ribeye Marrow';
+  font-family: 'Chewy';
+  font-weight: bolder;
   padding: 10px;
   margin: 1.25em;
   font-weight:bold;
+  /*background-color: #BA8B32*/
 
 }
 input{
@@ -23,10 +25,22 @@ input{
   border-radius: 25px;
 }
 input:hover{
-
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: transform .5s ease-in-out;
 }
-input: focus{
+button:hover{
+  border-color:#36B1BF;
+  border-width: 4px;
+}
 
+legend{
+  border: 2px;
+  border-radius: 25px;
+  background-color: #36B1BF;
+  width: 400px;
+  height: 100px;
 }
 table {
   text-align: center;
@@ -65,11 +79,16 @@ th{
 }
 
 body {
-background-color: #BA8B32;
-border-color: black;
+/*background-color: #BA8B32;*/
+/*border-color: black;*/
+background-image: url("images/background.jpg");
+height:110%;
+width: 100%;
 border-width: 10px;
-
+opacity: .99;
 }
+
+
 section {
 }
 aside {
@@ -89,21 +108,25 @@ aside {
 #storeMaker{
   font-family:'Macondo Swash Caps';
   text-align:center;
-  width: 100%;
-  display: inline-block;
+  /*width: 96.5%;*/
+  float:center;
   background-color:#4AD9D9;
-
-
-
-
+  margin: 1.25em;
 };
 
 #mainTable{
   width: 80%;
   height: 30%;
   display:inline-block;
-  float: right;
+  float: center;
   font-size: 16px;
+}
+
+#mainTable:hover{
+  -webkit-transform: scale(1.6);
+  -ms-transform: scale(1.6);
+  transform: scale(1.6);
+  transition: transform .5s ease-in-out;
 
 }
 #donutHeader{
@@ -114,12 +137,17 @@ aside {
 
 }
 #introP{
-font-family: 'Ribeye Marrow'
+font-family: 'Chewy'
+}
+#fade{
+  opacity:1.0;
+}
+#fade:hover{
+  opacity: .94;
 }
 
-
 #secondP{
-font-family: 'Ribeye Marrow';
+font-family: 'Chewy';
 }
 #inputButton{
 width: 180px;
@@ -131,4 +159,6 @@ margin: 10px;
 
 #ad {
   margin: 0px;
+  height: 280px;
+  width: 400px;
 }
